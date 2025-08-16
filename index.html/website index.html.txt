@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr White Teeth Whitening Bournemouth</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; }
+  header { background: #0099ff; color: white; text-align: center; padding: 50px 20px; }
+  header h1 { margin: 0; font-size: 2.5em; }
+  header p { margin: 10px 0 0; font-size: 1.2em; }
+  .section { padding: 50px 20px; max-width: 900px; margin: auto; }
+  .section h2 { text-align: center; color: #0099ff; }
+  .cta-button { display: block; width: 200px; margin: 20px auto; padding: 15px; text-align: center; background: #ff9900; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; }
+  .contact, .social { text-align: center; margin-top: 20px; }
+  .social a { margin: 0 10px; color: #0099ff; text-decoration: none; font-weight: bold; }
+  ul { list-style: none; padding: 0; }
+  ul li { margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Mr White Teeth Whitening Bournemouth</h1>
+  <p>Affordable • Instant • Long-Lasting Results • Pain & Sensitivity Free</p>
+  <a class="cta-button" href="https://app.squareup.com/appointments/book/o6f2vc3qlwpszo/LPQCBVHFCH48A/start">Book Now</a>
+</header>
+
+<section class="section">
+  <h2>About Us</h2>
+  <p>Inspired by the USA teeth whitening industry, we’ve been serving Bournemouth since 2021. Relaxed environment, over 500 happy clients, high-quality home teeth whitening kits, and 1-hour UV blue light sessions for only £69.</p>
+</section>
+
+<section class="section">
+  <h2>Why Choose Us?</h2>
+  <ul>
+    <li>✅ Affordable & professional treatments</li>
+    <li>✅ Over 500 happy clients</li>
+    <li>✅ Sensitivity-free & pain-free process</li>
+    <li>✅ Instant, long-lasting results</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Book Your Treatment</h2>
+  <p style="text-align:center;">Click below to schedule your appointment instantly.</p>
+  <a class="cta-button" href="https://app.squareup.com/appointments/book/o6f2vc3qlwpszo/LPQCBVHFCH48A/start">Book Now</a>
+</section>
+
+<section class="section contact">
+  <h2>Contact Us</h2>
+  <p>Phone: <a href="tel:07843969254">07843 969254</a></p>
+  <p>Email: <a href="mailto:info.mrwhitestore@gmail.com">info.mrwhitestore@gmail.com</a></p>
+</section>
+
+<section class="section social">
+  <h2>Follow Us</h2>
+  <a href="https://www.facebook.com/share/16pnkbz4VR/?mibextid=wwXIfr" target="_blank">Facebook</a> |
+  <a href="https://youtube.com/@mrwhiteteethwhiteningchannel?si=z_ErF6RaMvOyCwWh" target="_blank">YouTube</a> |
+  <a href="https://www.google.com/search?sca_esv=972c76ef38736f5c&sxsrf=AE3TifM5T-94FwYFHYlujZXZ-O12YWBLiw:1755303850895&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-Ey3LIUr7yY31FZ0K4TDKfxjki2HJSLg2pwKXHIfcopOSffxseDNXhvLZ2aYi4gBvYHstcQRingw82V61D0e6GoyhteD-WroBKnp1VOBu4bAtTjDPfNQGEKuxuU6S67ACCCMO6j8%3D&q=MR+WHITE+LTD+Teeth+Whitening+Bournemouth+Reviews&sa=X&ved=2ahUKEwiNs4W0iI6PAxUI6wIHHZ1xNk4Q0bkNegQIKxAE&biw=1528&bih=755&dpr=1.25" target="_blank">Google Reviews</a>
+</section>
+
+</body>
+</html>
