@@ -605,14 +605,7 @@
 
         <!-- Slide 1 -->
         <div class="slide active">
-          <!--
-            ADD IMAGE: Replace .slide-img-ph with:
-            <img src="assets/images/gallery-1.jpg" alt="Before and after teeth whitening result 1" loading="lazy">
-          -->
-          <div class="slide-img-ph" aria-hidden="true">
-            <i class="fa-regular fa-image"></i>
-            <span>Gallery image 1 &ndash; add your before/after photo</span>
-          </div>
+          <img src="gallery-content/teeth-results1.png" alt="Before and after teeth whitening result 1" loading="lazy">
           <div class="slide-caption">
             <strong>Amazing Transformation</strong>
             Before &amp; After &ndash; 1-Hour UV Session
@@ -621,10 +614,7 @@
 
         <!-- Slide 2 -->
         <div class="slide">
-          <div class="slide-img-ph" aria-hidden="true">
-            <i class="fa-regular fa-image"></i>
-            <span>Gallery image 2 &ndash; add your before/after photo</span>
-          </div>
+          <img src="gallery-content/teeth-results3.png" alt="Before and after teeth whitening result 2" loading="lazy">
           <div class="slide-caption">
             <strong>Stunning Results</strong>
             Before &amp; After &ndash; UV Blue Light Treatment
@@ -633,10 +623,7 @@
 
         <!-- Slide 3 -->
         <div class="slide">
-          <div class="slide-img-ph" aria-hidden="true">
-            <i class="fa-regular fa-image"></i>
-            <span>Gallery image 3 &ndash; add your before/after photo</span>
-          </div>
+          <img src="gallery-content/teeth-session.png" alt="Teeth whitening session in progress" loading="lazy">
           <div class="slide-caption">
             <strong>Instant Results</strong>
             Before &amp; After &ndash; In-Chair Whitening
@@ -645,10 +632,7 @@
 
         <!-- Slide 4 -->
         <div class="slide">
-          <div class="slide-img-ph" aria-hidden="true">
-            <i class="fa-regular fa-image"></i>
-            <span>Gallery image 4 &ndash; add your before/after photo</span>
-          </div>
+          <img src="gallery-content/teeth-session2.png" alt="Teeth whitening session 2" loading="lazy">
           <div class="slide-caption">
             <strong>Beautiful Smile</strong>
             Before &amp; After &ndash; Professional Treatment
@@ -657,13 +641,19 @@
 
         <!-- Slide 5 -->
         <div class="slide">
-          <div class="slide-img-ph" aria-hidden="true">
-            <i class="fa-regular fa-image"></i>
-            <span>Gallery image 5 &ndash; add your before/after photo</span>
-          </div>
+          <img src="gallery-content/teeth-gels1.png" alt="Professional teeth whitening gel treatment" loading="lazy">
           <div class="slide-caption">
             <strong>Confidence Restored</strong>
             Before &amp; After &ndash; Sensitivity-Free Whitening
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide">
+          <img src="gallery-content/teeth-gels6.png" alt="Professional teeth whitening gels" loading="lazy">
+          <div class="slide-caption">
+            <strong>Professional Gels</strong>
+            Premium Whitening Gel &ndash; Salon-Quality Results
           </div>
         </div>
 
@@ -683,6 +673,7 @@
         <button class="dot" onclick="goToSlide(2)" aria-label="Slide 3" role="tab" aria-selected="false"></button>
         <button class="dot" onclick="goToSlide(3)" aria-label="Slide 4" role="tab" aria-selected="false"></button>
         <button class="dot" onclick="goToSlide(4)" aria-label="Slide 5" role="tab" aria-selected="false"></button>
+        <button class="dot" onclick="goToSlide(5)" aria-label="Slide 6" role="tab" aria-selected="false"></button>
       </div>
 
       <!-- ---- THUMBNAIL GRID ---- -->
@@ -690,39 +681,38 @@
 
         <!-- Thumb 1 -->
         <div class="gallery-thumb" onclick="goToSlide(0); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 1">
-          <!-- ADD IMAGE: <img src="assets/images/gallery-1.jpg" alt="Teeth whitening result" loading="lazy"> -->
-          <div class="gallery-thumb-ph" aria-hidden="true"><i class="fa-regular fa-image"></i><span>Photo 1</span></div>
+          <img src="gallery-content/teeth-results1.png" alt="Teeth whitening result 1" loading="lazy">
           <div class="gallery-thumb-label">Before &amp; After #1</div>
         </div>
 
         <!-- Thumb 2 -->
         <div class="gallery-thumb" onclick="goToSlide(1); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 2">
-          <div class="gallery-thumb-ph" aria-hidden="true"><i class="fa-regular fa-image"></i><span>Photo 2</span></div>
+          <img src="gallery-content/teeth-results3.png" alt="Teeth whitening result 2" loading="lazy">
           <div class="gallery-thumb-label">Before &amp; After #2</div>
         </div>
 
         <!-- Thumb 3 -->
         <div class="gallery-thumb" onclick="goToSlide(2); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 3">
-          <div class="gallery-thumb-ph" aria-hidden="true"><i class="fa-regular fa-image"></i><span>Photo 3</span></div>
+          <img src="gallery-content/teeth-session.png" alt="Teeth whitening session" loading="lazy">
           <div class="gallery-thumb-label">Before &amp; After #3</div>
         </div>
 
         <!-- Thumb 4 -->
         <div class="gallery-thumb" onclick="goToSlide(3); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 4">
-          <div class="gallery-thumb-ph" aria-hidden="true"><i class="fa-regular fa-image"></i><span>Photo 4</span></div>
+          <img src="gallery-content/teeth-session2.png" alt="Teeth whitening session 2" loading="lazy">
           <div class="gallery-thumb-label">Before &amp; After #4</div>
         </div>
 
         <!-- Thumb 5 -->
         <div class="gallery-thumb" onclick="goToSlide(4); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 5">
-          <div class="gallery-thumb-ph" aria-hidden="true"><i class="fa-regular fa-image"></i><span>Photo 5</span></div>
+          <img src="gallery-content/teeth-gels1.png" alt="Teeth whitening gel treatment" loading="lazy">
           <div class="gallery-thumb-label">Before &amp; After #5</div>
         </div>
 
-        <!-- Thumb 6 (extra slot ready for a 6th image) -->
-        <div class="gallery-thumb" role="button" tabindex="0" aria-label="More gallery images coming soon">
-          <div class="gallery-thumb-ph" aria-hidden="true"><i class="fa-solid fa-plus"></i><span>More coming soon</span></div>
-          <div class="gallery-thumb-label">Add more photos</div>
+        <!-- Thumb 6 -->
+        <div class="gallery-thumb" onclick="goToSlide(5); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 6">
+          <img src="gallery-content/teeth-gels6.png" alt="Professional whitening gels" loading="lazy">
+          <div class="gallery-thumb-label">Before &amp; After #6</div>
         </div>
 
       </div>
