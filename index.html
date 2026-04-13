@@ -182,8 +182,10 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      background-image: url('images/hero.png');
+      background-size: cover;
+      background-position: center;
     }
-    /* Placeholder gradient – remove when real image is added */
     .hero-img-placeholder {
       position: absolute;
       inset: 0;
@@ -606,9 +608,8 @@
   ===================== -->
   <header>
     <div class="header-inner">
-      <!-- LOGO – replace .logo-placeholder div with <img src="assets/images/logo.png" alt="Mr White Teeth Whitening" width="60"> when logo is ready -->
       <div class="logo-area">
-        <div class="logo-placeholder" aria-hidden="true">MW</div>
+        <img src="images/logo.png" alt="Mr White Teeth Whitening" width="60">
         <div class="logo-text">
           <h1>Mr White</h1>
           <span>Teeth Whitening &middot; Bournemouth</span>
@@ -633,17 +634,6 @@
        HERO SECTION
   ===================== -->
   <section class="hero" aria-label="Hero banner">
-    <!--
-      HERO IMAGE: To swap in a real photo, remove the .hero-img-placeholder div
-      and add these styles to .hero:
-        background-image: url('assets/images/hero.jpg');
-        background-size: cover;
-        background-position: center;
-    -->
-    <div class="hero-img-placeholder" aria-hidden="true">
-      <i class="fa-regular fa-image"></i>
-      <span>Hero image &ndash; add your photo here</span>
-    </div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-content">
@@ -980,6 +970,7 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
+        <img src="images/logo.png" alt="Mr White Teeth Whitening" width="60" style="margin-bottom:12px;">
         <h3>Mr White Teeth Whitening</h3>
         <p>Bournemouth's leading teeth whitening studio. Affordable, professional, and pain-free treatments for clients across Dorset since 2021. Over 500 happy smiles and counting.</p>
         <div class="footer-socials">
