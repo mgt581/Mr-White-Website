@@ -5,45 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary SEO -->
-  <title>Our Services | Mr White Teeth Whitening Bournemouth</title>
-  <meta name="description" content="Explore Mr White Teeth Whitening services in Bournemouth. UV Blue Light whitening from £69, home whitening kits, top-up treatments and gift vouchers. Book online today.">
-  <meta name="keywords" content="teeth whitening services Bournemouth, UV blue light whitening, home whitening kit, teeth whitening top-up, gift voucher teeth whitening Dorset">
+  <title>1-Hour UV Blue Light Whitening Session | Mr White Teeth Whitening Bournemouth</title>
+  <meta name="description" content="Book a 1-Hour UV Blue Light Whitening session at Mr White Teeth Whitening in Bournemouth. Professional results from £69. Pain-free and fast.">
+  <meta name="keywords" content="UV blue light whitening Bournemouth, 1 hour teeth whitening, in-chair whitening Dorset, teeth whitening session">
   <meta name="author" content="Mr White Teeth Whitening">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mrwhiteteethwhitening.co.uk/services.html">
+  <link rel="canonical" href="https://mrwhiteteethwhitening.co.uk/whiteningsession.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mrwhiteteethwhitening.co.uk/services.html">
-  <meta property="og:title" content="Our Services | Mr White Teeth Whitening Bournemouth">
-  <meta property="og:description" content="Professional teeth whitening from £69. UV in-chair sessions, home kits, top-ups and gift vouchers in Bournemouth, Dorset.">
+  <meta property="og:url" content="https://mrwhiteteethwhitening.co.uk/whiteningsession.html">
+  <meta property="og:title" content="1-Hour UV Blue Light Whitening Session | Mr White Teeth Whitening">
+  <meta property="og:description" content="Dramatic results in just one hour. Professional UV blue light teeth whitening from £69 in Bournemouth, Dorset.">
   <meta property="og:image" content="assets/images/og-image.jpg">
-
-  <!-- Schema.org LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Mr White Teeth Whitening",
-    "url": "https://mrwhiteteethwhitening.co.uk",
-    "telephone": "+447843969254",
-    "email": "info.mrwhitestore@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bournemouth",
-      "addressRegion": "Dorset",
-      "addressCountry": "GB"
-    }
-  }
-  </script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* ===========================
-       RESET & BASE
-    =========================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background: #fff; }
@@ -63,9 +42,7 @@
       --radius: 8px;
     }
 
-    /* ===========================
-       HEADER
-    =========================== */
+    /* HEADER */
     header {
       background: #fff;
       border-bottom: 2px solid var(--border);
@@ -97,9 +74,7 @@
     .header-book-btn:hover { background: var(--gold-dark); color: #fff; }
     .nav-toggle { display: none; background: none; border: none; font-size: 1.6em; color: var(--blue); cursor: pointer; }
 
-    /* ===========================
-       PAGE HERO BANNER
-    =========================== */
+    /* PAGE HERO */
     .page-hero {
       background: linear-gradient(135deg, var(--blue) 0%, #005fa3 100%);
       padding: 60px 24px;
@@ -110,9 +85,7 @@
     .page-hero p { font-size: 1.1em; color: rgba(255,255,255,0.85); max-width: 560px; margin: 0 auto 24px; }
     .page-hero .hero-cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
-    /* ===========================
-       SHARED SECTION STYLES
-    =========================== */
+    /* SHARED */
     section { padding: 64px 24px; }
     .container { max-width: 1100px; margin: 0 auto; }
     .section-header { text-align: center; margin-bottom: 48px; }
@@ -131,8 +104,6 @@
     .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
     .cta-btn.whatsapp { background: var(--whatsapp); color: #fff; }
     .cta-btn.whatsapp:hover { background: var(--whatsapp-dark); }
-    .cta-btn.call { background: var(--blue); color: #fff; }
-    .cta-btn.call:hover { background: var(--blue-dark); }
     .cta-btn.gold { background: var(--gold); color: #222; }
     .cta-btn.gold:hover { background: var(--gold-dark); color: #fff; }
     .cta-btn.outline-blue { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
@@ -140,85 +111,71 @@
     .cta-btn.outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.7); }
     .cta-btn.outline-white:hover { background: rgba(255,255,255,0.15); }
 
-    /* ===========================
-       SERVICES SECTION
-    =========================== */
-    .services-section { background: #fff; }
-    .services-grid {
+    /* SERVICE DETAIL */
+    .service-detail { background: #fff; }
+    .service-detail-inner {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-    }
-    .service-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-      background: #fff;
-    }
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,119,204,0.12); }
-    .service-img-placeholder {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #e8f4ff, #c9dff0);
-      display: flex;
-      flex-direction: column;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
       align-items: center;
-      justify-content: center;
-      color: #a0bcd8;
-      gap: 8px;
-      font-size: 0.85em;
     }
-    .service-img-placeholder i { font-size: 2.5em; }
-    .service-body { padding: 22px; }
-    .service-body h3 { color: var(--blue); font-size: 1.1em; font-weight: 800; margin-bottom: 8px; }
-    .service-body p { color: #555; font-size: 0.9em; margin-bottom: 6px; }
-    .service-price { font-weight: 700; color: var(--blue); font-size: 1em; margin-bottom: 16px; }
-    .service-card .cta-btn { width: 100%; justify-content: center; }
+    .service-detail-img img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(0,119,204,0.12);
+    }
+    .service-detail-content h2 { color: var(--blue); font-size: 1.8em; font-weight: 800; margin-bottom: 14px; }
+    .service-detail-content p { color: #555; font-size: 1em; margin-bottom: 14px; }
+    .service-detail-content .price-tag {
+      display: inline-block;
+      background: var(--light-bg);
+      border: 2px solid var(--blue);
+      color: var(--blue);
+      font-size: 1.3em;
+      font-weight: 800;
+      padding: 8px 20px;
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+    }
+    .service-detail-content .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
 
-    /* ===========================
-       WHY CHOOSE US
-    =========================== */
-    .why-section { background: var(--light-bg); }
-    .why-grid {
+    /* INCLUDES LIST */
+    .includes-section { background: var(--light-bg); }
+    .includes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 28px;
+      gap: 24px;
     }
-    .why-card {
-      text-align: center;
-      padding: 32px 20px;
+    .include-card {
       background: #fff;
-      border-radius: var(--radius);
       border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
     }
-    .why-icon {
-      width: 64px; height: 64px;
+    .include-icon {
+      width: 56px; height: 56px;
       background: var(--blue);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 1.5em; color: #fff;
+      margin: 0 auto 14px;
+      font-size: 1.3em; color: #fff;
     }
-    .why-card h3 { color: var(--blue); font-size: 1em; font-weight: 700; margin-bottom: 8px; }
-    .why-card p { color: #555; font-size: 0.9em; }
+    .include-card h3 { color: var(--blue); font-size: 1em; font-weight: 700; margin-bottom: 6px; }
+    .include-card p { color: #555; font-size: 0.9em; }
 
-    /* Services bottom CTA strip */
-    .services-cta-strip {
+    /* CTA STRIP */
+    .cta-strip {
       text-align: center;
-      margin-top: 48px;
-      padding: 36px 20px;
+      padding: 48px 24px;
       background: var(--blue);
-      border-radius: var(--radius);
       color: #fff;
     }
-    .services-cta-strip h3 { font-size: 1.4em; margin-bottom: 8px; }
-    .services-cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 20px; }
-    .services-cta-strip .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .cta-strip h2 { font-size: 1.7em; font-weight: 900; margin-bottom: 10px; }
+    .cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 24px; font-size: 1.05em; }
+    .cta-strip .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
-    /* ===========================
-       FOOTER
-    =========================== */
+    /* FOOTER */
     footer { background: #0a1628; color: #ccc; padding: 48px 24px 24px; }
     .footer-grid {
       max-width: 1100px; margin: 0 auto;
@@ -268,11 +225,10 @@
     }
     .float-wa:hover .float-wa-tooltip { opacity: 1; }
 
-    /* ===========================
-       RESPONSIVE
-    =========================== */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .service-detail-inner { grid-template-columns: 1fr; }
     }
     @media (max-width: 680px) {
       nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 20px 24px; border-top: 1px solid var(--border); gap: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
@@ -285,9 +241,7 @@
 </head>
 <body>
 
-  <!-- =====================
-       HEADER
-  ===================== -->
+  <!-- HEADER -->
   <header>
     <div class="header-inner">
       <div class="logo-area">
@@ -312,12 +266,10 @@
     </div>
   </header>
 
-  <!-- =====================
-       PAGE HERO
-  ===================== -->
+  <!-- PAGE HERO -->
   <div class="page-hero">
-    <h2>Our Services</h2>
-    <p>Professional teeth whitening treatments tailored for every budget and lifestyle &mdash; starting from just &pound;69.</p>
+    <h2>1-Hour UV Blue Light Whitening</h2>
+    <p>Our signature in-chair treatment &mdash; dramatic results in just one hour, starting from &pound;69.</p>
     <div class="hero-cta-row">
       <a class="cta-btn gold"
          href="https://app.squareup.com/appointments/book/o6f2vc3qlwpszo/LPQCBVHFCH48A/start"
@@ -325,140 +277,98 @@
         <i class="fa-solid fa-calendar-check"></i> Book Now
       </a>
       <a class="cta-btn outline-white"
-         href="https://wa.me/447843969254?text=Hi%20Mr%20White%2C%20I%27d%20like%20to%20enquire%20about%20your%20services"
+         href="https://wa.me/447843969254?text=Hi%20Mr%20White%2C%20I%27d%20like%20to%20enquire%20about%20the%20UV%20whitening%20session"
          target="_blank" rel="noopener">
         <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
       </a>
-      <a class="cta-btn outline-white" href="tel:07843969254">
+    </div>
+  </div>
+
+  <!-- SERVICE DETAIL -->
+  <section class="service-detail">
+    <div class="container">
+      <div class="service-detail-inner">
+        <div class="service-detail-img">
+          <img src="images/Teeth-Whitening-light.png" alt="1-Hour UV Blue Light Whitening Session">
+        </div>
+        <div class="service-detail-content">
+          <h2>What Is the UV Blue Light Whitening Session?</h2>
+          <p>Our most popular treatment uses professional-grade whitening gel activated by a powerful UV blue light. In just 60 minutes, you'll walk out with a noticeably brighter, whiter smile.</p>
+          <p>This in-chair session is completely pain-free and safe for sensitive teeth. No moulds, no trays, no waiting &mdash; just instant, stunning results.</p>
+          <p>Trusted by over 500 clients across Bournemouth, Poole, and Christchurch since 2021.</p>
+          <div class="price-tag">From &pound;69</div>
+          <div class="cta-row">
+            <a class="cta-btn gold"
+               href="https://app.squareup.com/appointments/book/o6f2vc3qlwpszo/LPQCBVHFCH48A/start"
+               target="_blank" rel="noopener">
+              <i class="fa-solid fa-calendar-check"></i> Book This Treatment
+            </a>
+            <a class="cta-btn outline-blue"
+               href="https://wa.me/447843969254?text=Hi%20Mr%20White%2C%20I%27d%20like%20to%20book%20a%20UV%20whitening%20session"
+               target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="includes-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What&rsquo;s Included</h2>
+        <div class="divider"></div>
+        <p>Everything you need for a brighter smile in a single session</p>
+      </div>
+      <div class="includes-grid">
+        <div class="include-card">
+          <div class="include-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>60-Minute Session</h3>
+          <p>Full in-chair treatment completed in just one hour &mdash; fit around your busy day.</p>
+        </div>
+        <div class="include-card">
+          <div class="include-icon"><i class="fa-solid fa-star"></i></div>
+          <h3>Professional-Grade Gel</h3>
+          <p>High-quality whitening gel for dramatic, long-lasting results.</p>
+        </div>
+        <div class="include-card">
+          <div class="include-icon"><i class="fa-solid fa-heart"></i></div>
+          <h3>Pain-Free Process</h3>
+          <p>Our gentle formula is safe even for sensitive teeth &mdash; no discomfort guaranteed.</p>
+        </div>
+        <div class="include-card">
+          <div class="include-icon"><i class="fa-solid fa-teeth"></i></div>
+          <h3>Instant Results</h3>
+          <p>See a visibly whiter smile immediately after your session &mdash; no waiting required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <h2>Ready to Book?</h2>
+    <p>Secure your spot online, WhatsApp us, or give us a call &mdash; we&rsquo;d love to help you smile brighter.</p>
+    <div class="cta-row">
+      <a class="cta-btn gold"
+         href="https://app.squareup.com/appointments/book/o6f2vc3qlwpszo/LPQCBVHFCH48A/start"
+         target="_blank" rel="noopener">
+        <i class="fa-solid fa-calendar-check"></i> Book Online
+      </a>
+      <a class="cta-btn whatsapp"
+         href="https://wa.me/447843969254?text=Hi%20Mr%20White%2C%20I%27d%20like%20to%20book%20a%20UV%20whitening%20session"
+         target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+      </a>
+      <a class="cta-btn" href="tel:07843969254" style="background:rgba(255,255,255,0.15); color:#fff; border:2px solid rgba(255,255,255,0.5);">
         <i class="fa-solid fa-phone"></i> Call Now
       </a>
     </div>
   </div>
 
-  <!-- =====================
-       SERVICES SECTION
-  ===================== -->
-  <section class="services-section" id="services" aria-labelledby="services-heading">
-    <div class="container">
-      <div class="section-header">
-        <h2 id="services-heading">What We Offer</h2>
-        <div class="divider"></div>
-        <p>Professional teeth whitening treatments tailored for every budget and lifestyle</p>
-      </div>
-
-      <div class="services-grid">
-
-        <article class="service-card">
-          <img src="images/Teeth-Whitening-light.png" alt="1-Hour UV Blue Light Whitening" loading="lazy" style="width:100%;border-radius:12px 12px 0 0;object-fit:cover;">
-          <div class="service-body">
-            <h3>1-Hour UV Blue Light Whitening</h3>
-            <p>Our signature in-chair treatment. Professional-grade gel activated by UV blue light for dramatic results in just one hour.</p>
-            <p class="service-price">From &pound;69</p>
-            <a class="cta-btn gold" href="whiteningsession.html">
-              <i class="fa-solid fa-arrow-right"></i> Click Here for Whitening Session
-            </a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="images/home-kits.png" alt="Professional Home Whitening Kit" loading="lazy" style="width:100%;border-radius:12px 12px 0 0;object-fit:cover;">
-          <div class="service-body">
-            <h3>Professional Home Whitening Kit</h3>
-            <p>Whiten at your own pace with our professional-grade home kit. Custom trays and whitening gel for long-lasting results.</p>
-            <p class="service-price">Enquire for pricing</p>
-            <a class="cta-btn outline-blue" href="homekits.html">
-              <i class="fa-solid fa-arrow-right"></i> Click Here for Home Kits
-            </a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="images/teeth-gels.png" alt="Top-Up &amp; Maintenance Treatments" loading="lazy" style="width:100%;border-radius:12px 12px 0 0;object-fit:cover;">
-          <div class="service-body">
-            <h3>Top-Up &amp; Maintenance Treatments</h3>
-            <p>Keep your smile at peak brightness with our affordable top-up sessions. Perfect for special occasions or regular maintenance.</p>
-            <p class="service-price">Discounted for returning clients</p>
-            <a class="cta-btn outline-blue" href="refills.html">
-              <i class="fa-solid fa-arrow-right"></i> Click Here for Refills
-            </a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="images/gift-voucher.png" alt="Gift Vouchers" loading="lazy" style="width:100%;border-radius:12px 12px 0 0;object-fit:cover;">
-          <div class="service-body">
-            <h3>Gift Vouchers</h3>
-            <p>Give the gift of a brighter smile. Our gift vouchers are perfect for birthdays, weddings, and special occasions.</p>
-            <p class="service-price">Available in any amount</p>
-            <a class="cta-btn outline-blue" href="giftvouchers.html">
-              <i class="fa-solid fa-arrow-right"></i> Click Here for Gift Vouchers
-            </a>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- Services bottom CTA strip -->
-      <div class="services-cta-strip">
-        <h3>Ready to Get Started?</h3>
-        <p>Book your appointment online, WhatsApp us, or give us a call &mdash; we&rsquo;d love to help you achieve your brightest smile.</p>
-        <div class="cta-row">
-          <a class="cta-btn gold"
-             href="https://app.squareup.com/appointments/book/o6f2vc3qlwpszo/LPQCBVHFCH48A/start"
-             target="_blank" rel="noopener">
-            <i class="fa-solid fa-calendar-check"></i> Book Online
-          </a>
-          <a class="cta-btn whatsapp"
-             href="https://wa.me/447843969254?text=Hi%20Mr%20White%2C%20I%27d%20like%20to%20enquire%20about%20your%20services"
-             target="_blank" rel="noopener">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
-          </a>
-          <a class="cta-btn" href="tel:07843969254" style="background:rgba(255,255,255,0.15); color:#fff; border:2px solid rgba(255,255,255,0.5);">
-            <i class="fa-solid fa-phone"></i> Call Now
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =====================
-       WHY CHOOSE US
-  ===================== -->
-  <section class="why-section" aria-labelledby="why-heading">
-    <div class="container">
-      <div class="section-header">
-        <h2 id="why-heading">Why Choose Mr White?</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-star"></i></div>
-          <h3>500+ Happy Clients</h3>
-          <p>Trusted by hundreds of people across Bournemouth, Poole and Christchurch since 2021.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
-          <h3>Instant Results</h3>
-          <p>See a noticeably whiter smile after just one 60-minute session &mdash; guaranteed.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-heart"></i></div>
-          <h3>Pain &amp; Sensitivity Free</h3>
-          <p>Our gentle formula is safe for sensitive teeth &mdash; no pain, no discomfort.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-sterling-sign"></i></div>
-          <h3>Affordable Prices</h3>
-          <p>Professional results from just &pound;69. No hidden costs, no nasty surprises.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================
-       FOOTER
-  ===================== -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
