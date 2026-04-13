@@ -186,59 +186,12 @@
       background-size: cover;
       background-position: center;
     }
-    .hero-img-placeholder {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #0077cc 0%, #00c6fb 50%, #c9dff0 100%);
+    /* CTA strip directly below the hero image */
+    .hero-cta-section {
+      background: var(--light-bg);
+      padding: 28px 24px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      color: rgba(255,255,255,0.35);
-      font-size: 1.2em;
-      gap: 10px;
-      /* REMOVE this div and set background-image on .hero when image is ready:
-         background-image: url('assets/images/hero.jpg');
-         background-size: cover;
-         background-position: center; */
-    }
-    .hero-img-placeholder i { font-size: 4em; }
-    /* Dark overlay for text readability */
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 30, 60, 0.52);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 40px 24px;
-      max-width: 800px;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: #222;
-      font-size: 0.8em;
-      font-weight: 700;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-      letter-spacing: 0.5px;
-    }
-    .hero-content h2 {
-      font-size: 2.6em;
-      color: #fff;
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 14px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-    .hero-content p {
-      color: rgba(255,255,255,0.9);
-      font-size: 1.15em;
-      margin-bottom: 32px;
     }
     .hero-cta-row {
       display: flex;
@@ -265,7 +218,7 @@
     .cta-btn.whatsapp:hover { background: var(--whatsapp-dark); }
     .cta-btn.call { background: var(--blue); color: #fff; }
     .cta-btn.call:hover { background: var(--blue-dark); }
-    .cta-btn.email { background: #fff; color: #333; border: 2px solid rgba(255,255,255,0.8); }
+    .cta-btn.email { background: #fff; color: #333; border: 2px solid var(--border); }
     .cta-btn.email:hover { background: #f0f0f0; }
     .cta-btn.gold { background: var(--gold); color: #222; }
     .cta-btn.gold:hover { background: var(--gold-dark); color: #fff; }
@@ -594,7 +547,6 @@
       nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 20px 24px; border-top: 1px solid var(--border); gap: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
       nav.open { display: flex; }
       .nav-toggle { display: block; }
-      .hero-content h2 { font-size: 1.8em; }
       .footer-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .rating-big { font-size: 2em; }
@@ -633,29 +585,24 @@
   <!-- =====================
        HERO SECTION
   ===================== -->
-  <section class="hero" aria-label="Hero banner">
-    <div class="hero-overlay" aria-hidden="true"></div>
+  <section class="hero" aria-label="Hero banner"></section>
 
-    <div class="hero-content">
-      <span class="hero-badge">&#11088; Bournemouth's Favourite Teeth Whitening</span>
-      <h2>Get a Brighter Smile<br>in Just 1 Hour</h2>
-      <p>Professional UV teeth whitening from just <strong style="color:var(--gold)">£69</strong><br>Pain-free &middot; No sensitivity &middot; 500+ happy clients across Dorset</p>
-
-      <div class="hero-cta-row">
-        <a class="cta-btn whatsapp"
-           href="https://wa.me/447843969254?text=Hi%20Mr%20White%2C%20I%27d%20like%20to%20book%20a%20teeth%20whitening%20session"
-           target="_blank" rel="noopener" aria-label="WhatsApp us">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
-        </a>
-        <a class="cta-btn call" href="tel:07843969254" aria-label="Call us now">
-          <i class="fa-solid fa-phone"></i> Call Now
-        </a>
-        <a class="cta-btn email" href="mailto:info.mrwhitestore@gmail.com" aria-label="Email us">
-          <i class="fa-solid fa-envelope"></i> Email Us
-        </a>
-      </div>
+  <!-- CTA buttons below hero -->
+  <div class="hero-cta-section">
+    <div class="hero-cta-row">
+      <a class="cta-btn whatsapp"
+         href="https://wa.me/447843969254?text=Hi%20Mr%20White%2C%20I%27d%20like%20to%20book%20a%20teeth%20whitening%20session"
+         target="_blank" rel="noopener" aria-label="WhatsApp us">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+      </a>
+      <a class="cta-btn call" href="tel:07843969254" aria-label="Call us now">
+        <i class="fa-solid fa-phone"></i> Call Now
+      </a>
+      <a class="cta-btn email" href="mailto:info.mrwhitestore@gmail.com" aria-label="Email us">
+        <i class="fa-solid fa-envelope"></i> Email Us
+      </a>
     </div>
-  </section>
+  </div>
 
   <!-- =====================
        TRUST STRIP
