@@ -177,19 +177,16 @@
     .hero {
       position: relative;
       width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 48px 24px;
-      background: var(--light-bg);
+      display: block;
+      padding: 0;
+      margin: 0;
+      line-height: 0;
     }
     .hero-img {
-      max-width: 440px;
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      max-width: 100%;
     }
     /* CTA strip directly below the hero image */
     .hero-cta-section {
@@ -555,17 +552,7 @@
       .footer-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .rating-big { font-size: 2em; }
-      /* Hero: restore full-bleed background-image cover for mobile */
-      .hero {
-        padding: 0;
-        min-height: 560px;
-        overflow: hidden;
-        background-image: url('images/hero.png');
-        background-size: cover;
-        background-position: center;
-        align-items: center;
-      }
-      .hero-img { display: none; }
+
     }
   </style>
 </head>
