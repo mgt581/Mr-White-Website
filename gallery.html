@@ -139,105 +139,195 @@
     .cta-btn.outline-white:hover { background: rgba(255,255,255,0.15); }
 
     /* ===========================
-       GALLERY SLIDESHOW
+       RESULTS GALLERY
     =========================== */
     .gallery-section { background: var(--light-bg); }
 
-    .slideshow {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: #0a1628;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.15);
-    }
-
-    .slide { display: none; position: relative; }
-    .slide.active { display: block; }
-    .slide img { width: 100%; height: 480px; object-fit: cover; display: block; }
-
-    .slide-caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.7));
-      color: #fff;
-      padding: 40px 24px 20px;
-      font-size: 0.95em;
-    }
-    .slide-caption strong { display: block; font-size: 1.05em; margin-bottom: 4px; }
-
-    .slide-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.45);
-      color: #fff;
-      border: none;
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      font-size: 1.1em;
-      cursor: pointer;
-      transition: background 0.2s;
-      z-index: 10;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .slide-btn:hover { background: var(--blue); }
-    .slide-btn.prev { left: 14px; }
-    .slide-btn.next { right: 14px; }
-
-    .slide-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 0 4px;
-    }
-    .dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--border);
-      cursor: pointer;
-      transition: background 0.2s;
-      border: none;
-    }
-    .dot.active { background: var(--blue); }
-
-    .gallery-grid {
+    /* Results grid — 3 columns desktop, 1 column mobile */
+    .results-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 48px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 0;
     }
-    .gallery-thumb {
-      border-radius: var(--radius);
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-      background: #e8f4ff;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .gallery-thumb:hover { transform: scale(1.03); box-shadow: 0 6px 24px rgba(0,119,204,0.15); }
-    .gallery-thumb img { width: 100%; height: 160px; object-fit: cover; }
-    .gallery-thumb-label {
-      padding: 8px 12px;
-      font-size: 0.8em;
-      font-weight: 600;
-      color: #555;
+
+    /* Individual result card */
+    .result-card {
       background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+      transition: transform 0.22s, box-shadow 0.22s;
+      cursor: pointer;
+    }
+    .result-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0,119,204,0.18);
+    }
+
+    /* Image wrapper with BEFORE / AFTER labels */
+    .result-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #f0f4f8;
+    }
+    .result-img-wrap img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      display: block;
+    }
+    .ba-label {
+      position: absolute;
+      top: 10px;
+      font-size: 0.72em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+    .ba-label.before {
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+    }
+    .ba-label.after {
+      right: 10px;
+      background: var(--blue);
+      color: #fff;
+    }
+
+    /* Card info */
+    .result-info {
+      padding: 16px 20px 20px;
+    }
+    .result-info .result-title {
+      font-size: 1em;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 10px;
+    }
+    .result-meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8em;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .result-badge.shades {
+      background: #fff7e0;
+      color: #b07800;
+      border: 1px solid #f0c040;
+    }
+    .result-badge.time {
+      background: #e8f4ff;
+      color: var(--blue);
+      border: 1px solid var(--border);
     }
 
     /* Gallery CTA strip */
     .gallery-cta-strip {
       text-align: center;
-      margin-top: 40px;
-      padding: 32px 20px;
+      margin-top: 48px;
+      padding: 36px 20px;
       background: var(--blue);
-      border-radius: var(--radius);
+      border-radius: 14px;
       color: #fff;
     }
-    .gallery-cta-strip h3 { font-size: 1.4em; margin-bottom: 8px; }
-    .gallery-cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+    .gallery-cta-strip h3 { font-size: 1.5em; font-weight: 800; margin-bottom: 8px; }
+    .gallery-cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 24px; }
     .gallery-cta-strip .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+    /* ===========================
+       LIGHTBOX
+    =========================== */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(8,18,38,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox-overlay.open { display: flex; }
+
+    .lightbox-box {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 700px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      animation: lbIn 0.22s ease;
+    }
+    @keyframes lbIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .lightbox-img-wrap {
+      position: relative;
+      background: #f0f4f8;
+    }
+    .lightbox-img-wrap img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      display: block;
+    }
+    .lightbox-img-wrap .ba-label { font-size: 0.8em; top: 14px; }
+    .lightbox-img-wrap .ba-label.before { left: 14px; }
+    .lightbox-img-wrap .ba-label.after  { right: 14px; }
+
+    .lightbox-body {
+      padding: 24px 28px 28px;
+      text-align: center;
+    }
+    .lightbox-body h3 {
+      font-size: 1.25em;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+    .lightbox-body p {
+      color: var(--text-muted);
+      font-size: 0.95em;
+      margin-bottom: 20px;
+    }
+    .lightbox-meta {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 12px; right: 14px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 1.1em;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: #c00; }
 
     /* ===========================
        FOOTER
@@ -296,6 +386,7 @@
     =========================== */
     @media (max-width: 900px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 680px) {
       nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 20px 24px; border-top: 1px solid var(--border); gap: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
@@ -303,7 +394,9 @@
       .nav-toggle { display: block; }
       .page-hero h2 { font-size: 1.6em; }
       .footer-grid { grid-template-columns: 1fr; }
-      .slide img { height: 300px; }
+      .results-grid { grid-template-columns: 1fr; }
+      .lightbox-img-wrap img { max-height: 280px; }
+      .lightbox-body { padding: 18px 20px 22px; }
     }
   </style>
 </head>
@@ -357,126 +450,130 @@
   </div>
 
   <!-- =====================
-       GALLERY SLIDESHOW
+       GALLERY — BEFORE & AFTER RESULTS
   ===================== -->
   <section class="gallery-section" id="gallery" aria-labelledby="gallery-heading">
     <div class="container">
+
+      <!-- Section Header -->
       <div class="section-header">
-        <h2 id="gallery-heading">Smile Transformations</h2>
+        <h2 id="gallery-heading">Real Results From Real Clients</h2>
         <div class="divider"></div>
-        <p>Real results from real clients &mdash; see the Mr White difference</p>
+        <p>See the difference professional whitening can make in just one session</p>
       </div>
 
-      <!-- ---- FEATURED SLIDESHOW ---- -->
-      <div class="slideshow" aria-label="Gallery slideshow" role="region">
+      <!-- Results Cards Grid -->
+      <div class="results-grid">
 
-        <!-- Slide 1 -->
-        <div class="slide active">
-          <img src="gallery-content/teeth-results1.png" alt="Before and after teeth whitening result 1" loading="lazy">
-          <div class="slide-caption">
-            <strong>Amazing Transformation</strong>
-            Before &amp; After &ndash; 1-Hour UV Session
+        <!-- Card 1 -->
+        <div class="result-card"
+             onclick="openLightbox('gallery-content/teeth-results1.png', 'Client #1 Transformation', 'A stunning +6 shade improvement achieved in a single 60-minute session — pain-free and sensitivity-free.', '+6 shades whiter', '60-minute session')"
+             role="button" tabindex="0" aria-label="View result 1 in full">
+          <div class="result-img-wrap">
+            <img src="gallery-content/teeth-results1.png" alt="Before and after teeth whitening result 1 — 6 shades whiter" loading="lazy">
+            <span class="ba-label before">BEFORE</span>
+            <span class="ba-label after">AFTER</span>
+          </div>
+          <div class="result-info">
+            <div class="result-title">Client #1 Transformation</div>
+            <div class="result-meta">
+              <span class="result-badge shades"><i class="fa-solid fa-star"></i> +6 shades whiter</span>
+              <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
+            </div>
           </div>
         </div>
 
-        <!-- Slide 2 -->
-        <div class="slide">
-          <img src="gallery-content/teeth-results3.png" alt="Before and after teeth whitening result 2" loading="lazy">
-          <div class="slide-caption">
-            <strong>Stunning Results</strong>
-            Before &amp; After &ndash; UV Blue Light Treatment
+        <!-- Card 2 -->
+        <div class="result-card"
+             onclick="openLightbox('gallery-content/teeth-results2.png', 'Client #2 Transformation', 'An impressive +7 shade result in just one session — no sensitivity, lasting confidence.', '+7 shades whiter', '60-minute session')"
+             role="button" tabindex="0" aria-label="View result 2 in full">
+          <div class="result-img-wrap">
+            <img src="gallery-content/teeth-results2.png" alt="Before and after teeth whitening result 2 — 7 shades whiter" loading="lazy">
+            <span class="ba-label before">BEFORE</span>
+            <span class="ba-label after">AFTER</span>
+          </div>
+          <div class="result-info">
+            <div class="result-title">Client #2 Transformation</div>
+            <div class="result-meta">
+              <span class="result-badge shades"><i class="fa-solid fa-star"></i> +7 shades whiter</span>
+              <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
+            </div>
           </div>
         </div>
 
-        <!-- Slide 3 -->
-        <div class="slide">
-          <img src="gallery-content/teeth-session.png" alt="Teeth whitening session in progress" loading="lazy">
-          <div class="slide-caption">
-            <strong>Instant Results</strong>
-            Before &amp; After &ndash; In-Chair Whitening
+        <!-- Card 3 -->
+        <div class="result-card"
+             onclick="openLightbox('gallery-content/teeth-results3.png', 'Client #3 Transformation', 'Our best result yet — a dramatic +9 shade improvement in a single professional session.', '+9 shades whiter', '60-minute session')"
+             role="button" tabindex="0" aria-label="View result 3 in full">
+          <div class="result-img-wrap">
+            <img src="gallery-content/teeth-results3.png" alt="Before and after teeth whitening result 3 — 9 shades whiter" loading="lazy">
+            <span class="ba-label before">BEFORE</span>
+            <span class="ba-label after">AFTER</span>
+          </div>
+          <div class="result-info">
+            <div class="result-title">Client #3 Transformation</div>
+            <div class="result-meta">
+              <span class="result-badge shades"><i class="fa-solid fa-star"></i> +9 shades whiter</span>
+              <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
+            </div>
           </div>
         </div>
 
-        <!-- Slide 4 -->
-        <div class="slide">
-          <img src="gallery-content/teeth-session2.png" alt="Teeth whitening session 2" loading="lazy">
-          <div class="slide-caption">
-            <strong>Beautiful Smile</strong>
-            Before &amp; After &ndash; Professional Treatment
+        <!-- Card 4 -->
+        <div class="result-card"
+             onclick="openLightbox('gallery-content/teeth-results4.png', 'Client #4 Transformation', 'An impressive +8 shade improvement achieved effortlessly in a single 60-minute session.', '+8 shades whiter', '60-minute session')"
+             role="button" tabindex="0" aria-label="View result 4 in full">
+          <div class="result-img-wrap">
+            <img src="gallery-content/teeth-results4.png" alt="Before and after teeth whitening result 4 — 8 shades whiter" loading="lazy">
+            <span class="ba-label before">BEFORE</span>
+            <span class="ba-label after">AFTER</span>
+          </div>
+          <div class="result-info">
+            <div class="result-title">Client #4 Transformation</div>
+            <div class="result-meta">
+              <span class="result-badge shades"><i class="fa-solid fa-star"></i> +8 shades whiter</span>
+              <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
+            </div>
           </div>
         </div>
 
-        <!-- Slide 5 -->
-        <div class="slide">
-          <img src="gallery-content/teeth-gels1.png" alt="Professional teeth whitening gel treatment" loading="lazy">
-          <div class="slide-caption">
-            <strong>Confidence Restored</strong>
-            Before &amp; After &ndash; Sensitivity-Free Whitening
+        <!-- Card 5 -->
+        <div class="result-card"
+             onclick="openLightbox('gallery-content/teeth-results5.png', 'Client #5 Transformation', 'A beautiful +6 shade result — brighter smile, zero sensitivity, all in one session.', '+6 shades whiter', '60-minute session')"
+             role="button" tabindex="0" aria-label="View result 5 in full">
+          <div class="result-img-wrap">
+            <img src="gallery-content/teeth-results5.png" alt="Before and after teeth whitening result 5 — 6 shades whiter" loading="lazy">
+            <span class="ba-label before">BEFORE</span>
+            <span class="ba-label after">AFTER</span>
+          </div>
+          <div class="result-info">
+            <div class="result-title">Client #5 Transformation</div>
+            <div class="result-meta">
+              <span class="result-badge shades"><i class="fa-solid fa-star"></i> +6 shades whiter</span>
+              <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
+            </div>
           </div>
         </div>
 
-        <!-- Slide 6 -->
-        <div class="slide">
-          <img src="gallery-content/teeth-gels6.png" alt="Professional teeth whitening gels" loading="lazy">
-          <div class="slide-caption">
-            <strong>Professional Gels</strong>
-            Premium Whitening Gel &ndash; Salon-Quality Results
+        <!-- Card 6 -->
+        <div class="result-card"
+             onclick="openLightbox('gallery-content/teeth-results6.png', 'Client #6 Transformation', 'A confident +5 shade improvement — visibly whiter, natural-looking results in just one hour.', '+5 shades whiter', '60-minute session')"
+             role="button" tabindex="0" aria-label="View result 6 in full">
+          <div class="result-img-wrap">
+            <img src="gallery-content/teeth-results6.png" alt="Before and after teeth whitening result 6 — 5 shades whiter" loading="lazy">
+            <span class="ba-label before">BEFORE</span>
+            <span class="ba-label after">AFTER</span>
+          </div>
+          <div class="result-info">
+            <div class="result-title">Client #6 Transformation</div>
+            <div class="result-meta">
+              <span class="result-badge shades"><i class="fa-solid fa-star"></i> +5 shades whiter</span>
+              <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
+            </div>
           </div>
         </div>
 
-        <!-- Controls -->
-        <button class="slide-btn prev" onclick="changeSlide(-1)" aria-label="Previous slide">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="slide-btn next" onclick="changeSlide(1)" aria-label="Next slide">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-      </div>
-
-      <!-- Dot navigation -->
-      <div class="slide-dots" role="tablist" aria-label="Slide navigation">
-        <button class="dot active" onclick="goToSlide(0)" aria-label="Slide 1" role="tab" aria-selected="true"></button>
-        <button class="dot" onclick="goToSlide(1)" aria-label="Slide 2" role="tab" aria-selected="false"></button>
-        <button class="dot" onclick="goToSlide(2)" aria-label="Slide 3" role="tab" aria-selected="false"></button>
-        <button class="dot" onclick="goToSlide(3)" aria-label="Slide 4" role="tab" aria-selected="false"></button>
-        <button class="dot" onclick="goToSlide(4)" aria-label="Slide 5" role="tab" aria-selected="false"></button>
-        <button class="dot" onclick="goToSlide(5)" aria-label="Slide 6" role="tab" aria-selected="false"></button>
-      </div>
-
-      <!-- ---- THUMBNAIL GRID ---- -->
-      <div class="gallery-grid" aria-label="Gallery thumbnails">
-
-        <div class="gallery-thumb" onclick="goToSlide(0); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 1">
-          <img src="gallery-content/teeth-results1.png" alt="Teeth whitening result 1" loading="lazy">
-          <div class="gallery-thumb-label">Before &amp; After #1</div>
-        </div>
-
-        <div class="gallery-thumb" onclick="goToSlide(1); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 2">
-          <img src="gallery-content/teeth-results3.png" alt="Teeth whitening result 2" loading="lazy">
-          <div class="gallery-thumb-label">Before &amp; After #2</div>
-        </div>
-
-        <div class="gallery-thumb" onclick="goToSlide(2); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 3">
-          <img src="gallery-content/teeth-session.png" alt="Teeth whitening session" loading="lazy">
-          <div class="gallery-thumb-label">Before &amp; After #3</div>
-        </div>
-
-        <div class="gallery-thumb" onclick="goToSlide(3); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 4">
-          <img src="gallery-content/teeth-session2.png" alt="Teeth whitening session 2" loading="lazy">
-          <div class="gallery-thumb-label">Before &amp; After #4</div>
-        </div>
-
-        <div class="gallery-thumb" onclick="goToSlide(4); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 5">
-          <img src="gallery-content/teeth-gels1.png" alt="Teeth whitening gel treatment" loading="lazy">
-          <div class="gallery-thumb-label">Before &amp; After #5</div>
-        </div>
-
-        <div class="gallery-thumb" onclick="goToSlide(5); document.querySelector('.slideshow').scrollIntoView({behavior:'smooth'});" role="button" tabindex="0" aria-label="View gallery image 6">
-          <img src="gallery-content/teeth-gels6.png" alt="Professional whitening gels" loading="lazy">
-          <div class="gallery-thumb-label">Before &amp; After #6</div>
-        </div>
-
-      </div>
+      </div><!-- /results-grid -->
 
       <!-- Gallery CTA strip -->
       <div class="gallery-cta-strip">
@@ -501,6 +598,35 @@
 
     </div>
   </section>
+
+  <!-- =====================
+       LIGHTBOX
+  ===================== -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Before and after comparison" onclick="closeLightboxOnOverlay(event)">
+    <div class="lightbox-box">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="lightbox-img-wrap">
+        <img id="lb-img" src="" alt="Before and after teeth whitening result">
+        <span class="ba-label before">BEFORE</span>
+        <span class="ba-label after">AFTER</span>
+      </div>
+      <div class="lightbox-body">
+        <h3 id="lb-title"></h3>
+        <div class="lightbox-meta">
+          <span class="result-badge shades"><i class="fa-solid fa-star"></i> <span id="lb-shades"></span></span>
+          <span class="result-badge time"><i class="fa-regular fa-clock"></i> <span id="lb-time"></span></span>
+        </div>
+        <p id="lb-desc"></p>
+        <a class="cta-btn gold"
+           href="https://app.squareup.com/appointments/book/o6f2vc3qlwpszo/LPQCBVHFCH48A/start"
+           target="_blank" rel="noopener" style="display:inline-flex;">
+          <i class="fa-solid fa-calendar-check"></i> Book Your Whitening Session
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- =====================
        FOOTER
@@ -570,37 +696,34 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ---- SLIDESHOW LOGIC ----
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots   = document.querySelectorAll('.dot');
-
-    function showSlide(n) {
-      slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
-      dots[currentSlide].setAttribute('aria-selected', 'false');
-      currentSlide = (n + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
-      dots[currentSlide].setAttribute('aria-selected', 'true');
+    // ---- LIGHTBOX ----
+    function openLightbox(src, title, desc, shades, time) {
+      document.getElementById('lb-img').src    = src;
+      document.getElementById('lb-title').textContent  = title;
+      document.getElementById('lb-desc').textContent   = desc;
+      document.getElementById('lb-shades').textContent = shades;
+      document.getElementById('lb-time').textContent   = time;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
 
-    function changeSlide(dir) { showSlide(currentSlide + dir); }
-    function goToSlide(n)     { showSlide(n); }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-    // Auto-advance every 5 seconds
-    let autoPlay = setInterval(() => changeSlide(1), 5000);
+    function closeLightboxOnOverlay(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
 
-    // Pause on hover
-    document.querySelector('.slideshow').addEventListener('mouseenter', () => clearInterval(autoPlay));
-    document.querySelector('.slideshow').addEventListener('mouseleave', () => {
-      autoPlay = setInterval(() => changeSlide(1), 5000);
+    // Keyboard: Escape closes lightbox, Enter/Space opens focused card
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
     });
 
-    // Keyboard navigation for gallery thumbs
-    document.querySelectorAll('.gallery-thumb').forEach(thumb => {
-      thumb.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); thumb.click(); }
+    document.querySelectorAll('.result-card').forEach(card => {
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
       });
     });
   </script>
