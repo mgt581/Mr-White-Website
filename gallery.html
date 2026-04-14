@@ -143,10 +143,10 @@
     =========================== */
     .gallery-section { background: var(--light-bg); }
 
-    /* Results grid */
+    /* Results grid — 3 columns desktop, 1 column mobile */
     .results-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 28px;
       margin-top: 0;
     }
@@ -169,11 +169,12 @@
     .result-img-wrap {
       position: relative;
       overflow: hidden;
+      background: #f0f4f8;
     }
     .result-img-wrap img {
       width: 100%;
-      height: 240px;
-      object-fit: cover;
+      height: 220px;
+      object-fit: contain;
       display: block;
     }
     .ba-label {
@@ -277,11 +278,12 @@
 
     .lightbox-img-wrap {
       position: relative;
+      background: #f0f4f8;
     }
     .lightbox-img-wrap img {
       width: 100%;
       max-height: 420px;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
     .lightbox-img-wrap .ba-label { font-size: 0.8em; top: 14px; }
@@ -384,6 +386,7 @@
     =========================== */
     @media (max-width: 900px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 680px) {
       nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 20px 24px; border-top: 1px solid var(--border); gap: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
@@ -392,7 +395,6 @@
       .page-hero h2 { font-size: 1.6em; }
       .footer-grid { grid-template-columns: 1fr; }
       .results-grid { grid-template-columns: 1fr; }
-      .result-img-wrap img { height: 200px; }
       .lightbox-img-wrap img { max-height: 280px; }
       .lightbox-body { padding: 18px 20px 22px; }
     }
@@ -512,6 +514,60 @@
             <div class="result-title">Client #3 Transformation</div>
             <div class="result-meta">
               <span class="result-badge shades"><i class="fa-solid fa-star"></i> +9 shades whiter</span>
+              <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="result-card"
+             onclick="openLightbox('gallery-content/teeth-results4.png', 'Client #4 Transformation', 'An impressive +8 shade improvement achieved effortlessly in a single 60-minute session.', '+8 shades whiter', '60-minute session')"
+             role="button" tabindex="0" aria-label="View result 4 in full">
+          <div class="result-img-wrap">
+            <img src="gallery-content/teeth-results4.png" alt="Before and after teeth whitening result 4 — 8 shades whiter" loading="lazy">
+            <span class="ba-label before">BEFORE</span>
+            <span class="ba-label after">AFTER</span>
+          </div>
+          <div class="result-info">
+            <div class="result-title">Client #4 Transformation</div>
+            <div class="result-meta">
+              <span class="result-badge shades"><i class="fa-solid fa-star"></i> +8 shades whiter</span>
+              <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="result-card"
+             onclick="openLightbox('gallery-content/teeth-results5.png', 'Client #5 Transformation', 'A beautiful +6 shade result — brighter smile, zero sensitivity, all in one session.', '+6 shades whiter', '60-minute session')"
+             role="button" tabindex="0" aria-label="View result 5 in full">
+          <div class="result-img-wrap">
+            <img src="gallery-content/teeth-results5.png" alt="Before and after teeth whitening result 5 — 6 shades whiter" loading="lazy">
+            <span class="ba-label before">BEFORE</span>
+            <span class="ba-label after">AFTER</span>
+          </div>
+          <div class="result-info">
+            <div class="result-title">Client #5 Transformation</div>
+            <div class="result-meta">
+              <span class="result-badge shades"><i class="fa-solid fa-star"></i> +6 shades whiter</span>
+              <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="result-card"
+             onclick="openLightbox('gallery-content/teeth-results6.png', 'Client #6 Transformation', 'A confident +5 shade improvement — visibly whiter, natural-looking results in just one hour.', '+5 shades whiter', '60-minute session')"
+             role="button" tabindex="0" aria-label="View result 6 in full">
+          <div class="result-img-wrap">
+            <img src="gallery-content/teeth-results6.png" alt="Before and after teeth whitening result 6 — 5 shades whiter" loading="lazy">
+            <span class="ba-label before">BEFORE</span>
+            <span class="ba-label after">AFTER</span>
+          </div>
+          <div class="result-info">
+            <div class="result-title">Client #6 Transformation</div>
+            <div class="result-meta">
+              <span class="result-badge shades"><i class="fa-solid fa-star"></i> +5 shades whiter</span>
               <span class="result-badge time"><i class="fa-regular fa-clock"></i> 60-minute session</span>
             </div>
           </div>
