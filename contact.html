@@ -168,6 +168,30 @@
     /* Quick CTA buttons below contact info */
     .contact-quick-btns { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
 
+    /* Primary enlarged WhatsApp CTA */
+    .cta-whatsapp-primary {
+      font-size: 1.1em;
+      padding: 18px 28px;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.35);
+    }
+    .cta-whatsapp-primary:hover { box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+
+    /* Trust & urgency badges */
+    .trust-badge, .urgency-badge {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.92em; font-weight: 700;
+      border-radius: 6px;
+      padding: 9px 14px;
+      margin-bottom: 10px;
+    }
+    .trust-badge { background: #fffbea; color: #a07000; border: 1px solid #f0d060; }
+    .trust-badge i { color: #f0c040; }
+    .urgency-badge { background: #fff3f0; color: #c0320a; border: 1px solid #f5b0a0; }
+    .urgency-badge i { color: #e04020; }
+
+    /* Form contact hint */
+    .form-contact-note { font-size: 0.8em; color: var(--text-muted); margin: -10px 0 14px; }
+
     /* Contact Form */
     .contact-form { background: var(--light-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; }
     .contact-form h3 { color: var(--blue); font-size: 1.2em; font-weight: 800; margin-bottom: 20px; }
@@ -264,6 +288,8 @@
     =========================== */
     @media (max-width: 900px) {
       .contact-layout { grid-template-columns: 1fr; }
+      .contact-info { order: 1; }
+      .contact-form { order: 2; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 680px) {
@@ -309,8 +335,8 @@
        PAGE HERO
   ===================== -->
   <div class="page-hero">
-    <h2>Contact Us</h2>
-    <p>Get in touch today &mdash; we respond within 2 hours. Ready to transform your smile?</p>
+    <h2>Book Your Teeth Whitening Session Today</h2>
+    <p>Fast, safe, and effective whitening &mdash; message us now to secure your slot</p>
   </div>
 
   <!-- =====================
@@ -319,14 +345,17 @@
   <section class="contact-section" id="contact" aria-labelledby="contact-heading">
     <div class="container">
       <div class="section-header">
-        <h2 id="contact-heading">Get in Touch</h2>
+        <h2 id="contact-heading">Get a Fast Response &amp; Secure Your Slot</h2>
         <div class="divider"></div>
-        <p>Ready to transform your smile? Contact us today &mdash; we respond within 2 hours.</p>
+        <p>Fast, safe, and effective whitening &mdash; message us now to secure your slot</p>
       </div>
 
       <div class="contact-layout">
         <!-- Contact Info -->
         <div class="contact-info">
+          <p class="trust-badge"><i class="fa-solid fa-star"></i> Rated 5&#9733; by 500+ clients across Bournemouth &amp; Dorset</p>
+          <p class="urgency-badge"><i class="fa-solid fa-fire"></i> Limited appointments available this week</p>
+
           <h3>Contact Details</h3>
 
           <div class="contact-info-item">
@@ -371,16 +400,13 @@
           </div>
 
           <div class="contact-quick-btns">
-            <a class="cta-btn whatsapp"
+            <a class="cta-btn whatsapp cta-whatsapp-primary"
                href="https://wa.me/447843969254?text=Hi%20Mr%20White%2C%20I%27d%20like%20to%20book%20a%20teeth%20whitening%20session"
                target="_blank" rel="noopener">
-              <i class="fa-brands fa-whatsapp"></i> WhatsApp Us Now
+              <i class="fa-brands fa-whatsapp"></i> Message Us on WhatsApp &ndash; Get a Fast Reply
             </a>
             <a class="cta-btn call" href="tel:07843969254">
-              <i class="fa-solid fa-phone"></i> Call Now: 07843 969254
-            </a>
-            <a class="cta-btn email" href="mailto:info.mrwhitestore@gmail.com">
-              <i class="fa-solid fa-envelope"></i> Email Us
+              <i class="fa-solid fa-phone"></i> Call Now &ndash; Speak Directly
             </a>
           </div>
         </div>
@@ -389,41 +415,25 @@
         <div class="contact-form">
           <h3>Send Us a Message</h3>
           <form action="mailto:info.mrwhitestore@gmail.com" method="post" enctype="text/plain">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="first-name">First Name *</label>
-                <input type="text" id="first-name" name="first_name" placeholder="Jane" required>
-              </div>
-              <div class="form-group">
-                <label for="last-name">Last Name *</label>
-                <input type="text" id="last-name" name="last_name" placeholder="Smith" required>
-              </div>
-            </div>
             <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
             </div>
             <div class="form-group">
               <label for="phone">Phone Number</label>
               <input type="tel" id="phone" name="phone" placeholder="07700 000000">
             </div>
             <div class="form-group">
-              <label for="service">Service Interested In</label>
-              <select id="service" name="service">
-                <option value="">– Select a service –</option>
-                <option>1-Hour UV Blue Light Whitening (&pound;69)</option>
-                <option>Professional Home Whitening Kit</option>
-                <option>Top-Up / Maintenance Treatment</option>
-                <option>Gift Voucher</option>
-                <option>General Enquiry</option>
-              </select>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com">
             </div>
+            <p class="form-contact-note">Please provide at least a phone number or email so we can reach you.</p>
             <div class="form-group">
               <label for="message">Message *</label>
               <textarea id="message" name="message" placeholder="Tell us about your enquiry or preferred appointment time..." required></textarea>
             </div>
             <button type="submit" class="form-submit">
-              <i class="fa-solid fa-paper-plane"></i> Send Message
+              <i class="fa-solid fa-calendar-check"></i> Request Your Appointment
             </button>
             <p class="form-note">We aim to respond within 2 hours during business hours.</p>
           </form>
@@ -436,7 +446,7 @@
               <i class="fa-brands fa-whatsapp"></i> WhatsApp Instead
             </a>
             <a class="cta-btn call" href="tel:07843969254">
-              <i class="fa-solid fa-phone"></i> Call Us
+              <i class="fa-solid fa-phone"></i> Call Now &ndash; Speak Directly
             </a>
             <a class="cta-btn gold"
                href="https://app.squareup.com/appointments/book/o6f2vc3qlwpszo/LPQCBVHFCH48A/start"
