@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0077cc">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="geo.region" content="GB-BCP">
+  <meta name="geo.placename" content="Bournemouth">
+  <meta name="geo.position" content="50.7192;-1.8808">
+  <meta name="ICBM" content="50.7192, -1.8808">
   <meta name="apple-mobile-web-app-title" content="Mr White">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
@@ -12,17 +18,20 @@
   <meta name="keywords" content="teeth whitening Bournemouth, teeth whitening Dorset, teeth whitening near me, Mr White teeth whitening, UV teeth whitening Bournemouth, cheap teeth whitening Bournemouth, professional teeth whitening Poole, teeth whitening Christchurch">
   <meta name="author" content="Mr White Teeth Whitening">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mrwhiteteethwhitening.co.uk/">
+  <link rel="canonical" href="https://teethwhiteningbournemouth.co.uk/">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mrwhiteteethwhitening.co.uk/">
+  <meta property="og:url" content="https://teethwhiteningbournemouth.co.uk/">
   <meta property="og:title" content="Mr White Teeth Whitening Bournemouth | Dorset's #1 Teeth Whitening">
   <meta property="og:description" content="Professional, affordable, pain-free teeth whitening from £69. Serving Bournemouth, Poole & Christchurch. Call 07843 969254.">
-  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:image" content="https://teethwhiteningbournemouth.co.uk/images/hero.png">
+  <meta property="og:site_name" content="Mr White Teeth Whitening">
+  <meta property="og:locale" content="en_GB">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://teethwhiteningbournemouth.co.uk/images/hero.png">
   <meta name="twitter:title" content="Mr White Teeth Whitening Bournemouth">
   <meta name="twitter:description" content="Pain-free professional teeth whitening from £69. Bournemouth, Dorset.">
 
@@ -33,7 +42,7 @@
     "@type": "LocalBusiness",
     "name": "Mr White Teeth Whitening",
     "description": "Professional, affordable, pain-free teeth whitening in Bournemouth, Dorset. UV blue-light sessions from £69.",
-    "url": "https://mrwhiteteethwhitening.co.uk",
+    "url": "https://teethwhiteningbournemouth.co.uk",
     "telephone": "+447843969254",
     "email": "info@teethwhiteningbournemouth.co.uk",
     "address": {
@@ -48,6 +57,56 @@
     "sameAs": [
       "https://www.facebook.com/share/16pnkbz4VR/?mibextid=wwXIfr",
       "https://youtube.com/@mrwhiteteethwhiteningchannel?si=z_ErF6RaMvOyCwWh"
+    ]
+  }
+  </script>
+
+  <!-- Schema.org FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does teeth whitening take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our in-chair UV blue light whitening session takes around 60 minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does teeth whitening cost in Bournemouth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our most popular treatment starts from GBP 69, with additional options like home kits, top-ups, and gift vouchers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the treatment safe for sensitive teeth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our process is designed to be gentle and pain-free, including for many clients with sensitivity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which areas do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve clients from Bournemouth, Poole, Christchurch, and surrounding Dorset areas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I book a teeth whitening appointment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can book online through our booking link, call us directly, or message us on WhatsApp."
+        }
+      }
     ]
   }
   </script>
@@ -466,6 +525,38 @@
     .form-submit:hover { background: var(--blue-dark); }
     .form-note { text-align: center; color: var(--text-muted); font-size: 0.8em; margin-top: 10px; }
 
+    /* Local SEO content */
+    .local-seo-section { background: var(--light-bg); }
+    .local-seo-wrap {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .local-seo-wrap h3 { color: var(--blue); font-size: 1.3em; margin-bottom: 12px; }
+    .local-seo-wrap p { color: #555; margin-bottom: 12px; }
+    .local-seo-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .local-seo-links a {
+      font-size: 0.88em;
+      color: var(--blue);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+    }
+
+    /* FAQ section */
+    .faq-section { background: #fff; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      background: var(--light-bg);
+    }
+    .faq-item h3 { color: var(--blue); font-size: 1.02em; margin-bottom: 8px; }
+    .faq-item p { color: #555; font-size: 0.92em; }
+
     /* ===========================
        FOOTER
     =========================== */
@@ -559,6 +650,7 @@
     @media (max-width: 900px) {
       .contact-layout { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 680px) {
       nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 20px 24px; border-top: 1px solid var(--border); gap: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
@@ -569,9 +661,16 @@
       .rating-big { font-size: 2em; }
 
     }
+    @media (max-width: 680px) {
+      html { -webkit-text-size-adjust: 100%; }
+      .cta-btn,
+      .header-book-btn,
+      nav a { min-height: 44px; }
+      .float-wa { bottom: 20px; right: 20px; }
+    }
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- =====================
        HEADER
@@ -586,7 +685,7 @@
         </div>
       </div>
 
-      <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">
+      <button class="nav-toggle" aria-label="Open menu" >
         <i class="fa-solid fa-bars"></i>
       </button>
 
@@ -810,6 +909,56 @@
   </section>
 
   <!-- =====================
+       LOCAL SEO CONTENT
+  ===================== -->
+  <section class="local-seo-section" aria-labelledby="local-seo-heading">
+    <div class="container">
+      <div class="local-seo-wrap">
+        <h3 id="local-seo-heading">Teeth Whitening In Bournemouth, Poole &amp; Christchurch</h3>
+        <p>Mr White provides professional teeth whitening for clients across Bournemouth, Poole, Christchurch and nearby Dorset towns. If you are searching for affordable and professional teeth whitening near you, our clinic offers fast results with in-chair UV whitening and practical follow-up options.</p>
+        <p>New clients can start with our <a href="whiteningsession.html">1-hour whitening session</a>, then maintain results with <a href="refills.html">top-up treatments</a> or a <a href="homekits.html">home whitening kit</a>. If you are unsure which option is right, our team can guide you.</p>
+        <div class="local-seo-links" aria-label="Popular service links">
+          <a href="services.html">All Teeth Whitening Services</a>
+          <a href="gallery.html">Before &amp; After Results</a>
+          <a href="giftvouchers.html">Gift Vouchers</a>
+          <a href="contact.html">Book Or Enquire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       FAQ SECTION
+  ===================== -->
+  <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="faq-heading">Teeth Whitening FAQs</h2>
+        <div class="divider"></div>
+        <p>Quick answers to common questions from Bournemouth and Dorset clients</p>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>How long does whitening take?</h3>
+          <p>Our in-chair UV blue light session takes around 60 minutes from start to finish.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How much does it cost?</h3>
+          <p>Our most popular whitening session starts from &pound;69. We also offer home kits and top-up plans.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Is it suitable for sensitive teeth?</h3>
+          <p>Yes. The treatment is designed to be gentle and comfortable, and many sensitive clients tolerate it well.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How can I book?</h3>
+          <p>You can book online, call us on <a href="tel:07843969254">07843 969254</a>, or message us on WhatsApp for a quick response.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
        CONTACT SECTION
   ===================== -->
   <section class="contact-section" id="contact" aria-labelledby="contact-heading">
@@ -987,6 +1136,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script src="js/site-enhancements.js"></script>
   <script src="js/lead-tracking.js"></script>
 </body>
 </html>

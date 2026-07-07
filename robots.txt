@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Keep privacy policy out of search results
+Disallow: /privacy.html
+
+Sitemap: https://teethwhiteningbournemouth.co.uk/sitemap.xml

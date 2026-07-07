@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0077cc">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="geo.region" content="GB-BCP">
+  <meta name="geo.placename" content="Bournemouth">
+  <meta name="geo.position" content="50.7192;-1.8808">
+  <meta name="ICBM" content="50.7192, -1.8808">
   <meta name="apple-mobile-web-app-title" content="Mr White">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
@@ -12,14 +18,71 @@
   <meta name="keywords" content="teeth whitening top-up Bournemouth, maintenance whitening Dorset, whitening refill, returning client whitening">
   <meta name="author" content="Mr White Teeth Whitening">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mrwhiteteethwhitening.co.uk/refills.html">
+  <link rel="canonical" href="https://teethwhiteningbournemouth.co.uk/refills.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mrwhiteteethwhitening.co.uk/refills.html">
+  <meta property="og:url" content="https://teethwhiteningbournemouth.co.uk/refills.html">
   <meta property="og:title" content="Top-Up &amp; Maintenance Treatments | Mr White Teeth Whitening">
   <meta property="og:description" content="Keep your smile at peak brightness with our affordable top-up sessions. Discounted for returning clients in Bournemouth, Dorset.">
-  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:image" content="https://teethwhiteningbournemouth.co.uk/images/hero.png">
+  <meta property="og:site_name" content="Mr White Teeth Whitening">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://teethwhiteningbournemouth.co.uk/images/hero.png">
+  <meta name="twitter:title" content="Mr White Teeth Whitening Bournemouth">
+  <meta name="twitter:description" content="Professional, affordable teeth whitening in Bournemouth, Poole and Christchurch.">
+
+  <!-- Schema.org Service + Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Top-Up and Maintenance Whitening Treatments",
+    "serviceType": "Teeth whitening top-up treatment",
+    "description": "Maintenance and top-up whitening treatments for returning clients who want to keep their smile bright.",
+    "areaServed": ["Bournemouth", "Poole", "Christchurch", "Dorset"],
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Mr White Teeth Whitening",
+      "url": "https://teethwhiteningbournemouth.co.uk",
+      "telephone": "+447843969254"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "GBP",
+      "url": "https://teethwhiteningbournemouth.co.uk/refills.html",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://teethwhiteningbournemouth.co.uk/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://teethwhiteningbournemouth.co.uk/services.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Top-Up and Maintenance Treatments"
+      }
+    ]
+  }
+  </script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -239,9 +302,16 @@
       .page-hero h2 { font-size: 1.6em; }
       .footer-grid { grid-template-columns: 1fr; }
     }
+    @media (max-width: 680px) {
+      html { -webkit-text-size-adjust: 100%; }
+      .cta-btn,
+      .header-book-btn,
+      nav a { min-height: 44px; }
+      .float-wa { bottom: 20px; right: 20px; }
+    }
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- HEADER -->
   <header>
@@ -254,7 +324,7 @@
         </div>
       </div>
 
-      <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">
+      <button class="nav-toggle" aria-label="Open menu" >
         <i class="fa-solid fa-bars"></i>
       </button>
 
@@ -437,6 +507,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script src="js/site-enhancements.js"></script>
   <script src="js/lead-tracking.js"></script>
 </body>
 </html>

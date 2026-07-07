@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0077cc">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="geo.region" content="GB-BCP">
+  <meta name="geo.placename" content="Bournemouth">
+  <meta name="geo.position" content="50.7192;-1.8808">
+  <meta name="ICBM" content="50.7192, -1.8808">
   <meta name="apple-mobile-web-app-title" content="Mr White">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
@@ -12,14 +18,22 @@
   <meta name="keywords" content="contact Mr White teeth whitening Bournemouth, teeth whitening enquiry Dorset, book teeth whitening Bournemouth">
   <meta name="author" content="Mr White Teeth Whitening">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mrwhiteteethwhitening.co.uk/contact.html">
+  <link rel="canonical" href="https://teethwhiteningbournemouth.co.uk/contact.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mrwhiteteethwhitening.co.uk/contact.html">
+  <meta property="og:url" content="https://teethwhiteningbournemouth.co.uk/contact.html">
   <meta property="og:title" content="Contact Us | Mr White Teeth Whitening Bournemouth">
   <meta property="og:description" content="Get in touch with Bournemouth's #1 teeth whitening studio. Call, WhatsApp or email us today.">
-  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:image" content="https://teethwhiteningbournemouth.co.uk/images/hero.png">
+  <meta property="og:site_name" content="Mr White Teeth Whitening">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://teethwhiteningbournemouth.co.uk/images/hero.png">
+  <meta name="twitter:title" content="Mr White Teeth Whitening Bournemouth">
+  <meta name="twitter:description" content="Professional, affordable teeth whitening in Bournemouth, Poole and Christchurch.">
 
   <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">
@@ -27,7 +41,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Mr White Teeth Whitening",
-    "url": "https://mrwhiteteethwhitening.co.uk",
+    "url": "https://teethwhiteningbournemouth.co.uk",
     "telephone": "+447843969254",
     "email": "info@teethwhiteningbournemouth.co.uk",
     "address": {
@@ -302,9 +316,16 @@
       .footer-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
     }
+    @media (max-width: 680px) {
+      html { -webkit-text-size-adjust: 100%; }
+      .cta-btn,
+      .header-book-btn,
+      nav a { min-height: 44px; }
+      .float-wa { bottom: 20px; right: 20px; }
+    }
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- =====================
        HEADER
@@ -319,7 +340,7 @@
         </div>
       </div>
 
-      <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">
+      <button class="nav-toggle" aria-label="Open menu" >
         <i class="fa-solid fa-bars"></i>
       </button>
 
@@ -530,6 +551,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script src="js/site-enhancements.js"></script>
   <script src="js/lead-tracking.js"></script>
 </body>
 </html>
