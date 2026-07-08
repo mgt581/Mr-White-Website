@@ -6,8 +6,7 @@ The website displays `info@teethwhiteningbournemouth.co.uk`.
 
 Set up forwarding for:
 
-- `info@teethwhiteningbournemouth.co.uk` to `info.mrwhitestore@gmail.com`
-- Add `alex@bryantgroupholdings.co.uk` as a second destination if required
+- `info@teethwhiteningbournemouth.co.uk` to `ajbryantsleads@gmail.com`
 
 To reply as `info@teethwhiteningbournemouth.co.uk`, add it as a send-as alias in Gmail or use a mailbox provider that supports SMTP for the domain.
 
@@ -41,7 +40,7 @@ Add these Cloudflare Pages environment variables:
 ```text
 RESEND_API_KEY=<your Resend API key>
 LEAD_FROM_EMAIL=Mr White Teeth Whitening <info@teethwhiteningbournemouth.co.uk>
-LEAD_TO_EMAILS=info.mrwhitestore@gmail.com,alex@bryantgroupholdings.co.uk
+LEAD_TO_EMAILS=ajbryantsleads@gmail.com
 ```
 
 The `LEAD_TO_EMAILS` variable is optional if the default recipients are correct.
