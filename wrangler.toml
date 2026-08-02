@@ -1,0 +1,7 @@
+name = "mr-white-website"
+pages_build_output_dir = "."
+compatibility_date = "2026-04-13"
+
+[[kv_namespaces]]
+binding = "REVIEWS_KV"
+id = "9b6d802c5fc94b809692c18a7a254d25"
