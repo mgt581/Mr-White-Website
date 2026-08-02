@@ -1,6 +1,6 @@
 export async function onRequestPost({ request, env }) {
   const apiKey = env.RESEND_API_KEY;
-  if (!apiKey) {
+  if (!apiKey || !apiKey.trim()) {
     return json({ error: 'RESEND_API_KEY is not configured' }, 500);
   }
 
@@ -16,6 +16,11 @@ export async function onRequestPost({ request, env }) {
     .split(',')
     .map((email) => email.trim())
     .filter(Boolean);
+
+  if (!toAddresses.length) {
+    console.error('Lead email is not configured: LEAD_TO_EMAILS is empty');
+    return json({ error: 'Lead email recipient is not configured' }, 500);
+  }
 
   const name = [lead.first_name, lead.last_name].filter(Boolean).join(' ') || lead.name;
   const fields = [
@@ -33,25 +38,34 @@ export async function onRequestPost({ request, env }) {
     `<tr><th align="left" style="padding:6px 12px 6px 0;">${escapeHtml(label)}</th><td style="padding:6px 0;">${escapeHtml(String(value))}</td></tr>`
   )).join('') + '</table>';
 
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-      'User-Agent': 'mr-white-website/1.0'
-    },
-    body: JSON.stringify({
-      from: fromAddress,
-      to: toAddresses,
-      reply_to: lead.email || 'info@teethwhiteningbournemouth.co.uk',
-      subject: lead.service ? `New teeth whitening enquiry - ${lead.service}` : 'New Mr White Teeth Whitening enquiry',
-      text,
-      html
-    })
-  });
+  let response;
+  try {
+    response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey.trim()}`,
+        'Content-Type': 'application/json',
+        'User-Agent': 'mr-white-website/1.0'
+      },
+      body: JSON.stringify({
+        from: fromAddress,
+        to: toAddresses,
+        reply_to: lead.email || 'info@teethwhiteningbournemouth.co.uk',
+        subject: lead.service ? `New teeth whitening enquiry - ${lead.service}` : 'New Mr White Teeth Whitening enquiry',
+        text,
+        html
+      })
+    });
+  } catch (error) {
+    // Do not allow an outbound network error to crash the Pages Function.
+    console.error('Resend request failed', error);
+    return json({ error: 'Email service is temporarily unavailable' }, 503);
+  }
 
   if (!response.ok) {
-    return json({ error: 'Resend email failed', details: await response.text() }, 502);
+    const details = await response.text();
+    console.error('Resend email failed', response.status, details);
+    return json({ error: 'Email service rejected the message' }, 502);
   }
 
   return json({ ok: true });
