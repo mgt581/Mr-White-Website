@@ -1,4 +1,6 @@
 export async function onRequestPost({ request, env }) {
+  const defaultFromAddress = 'Mr White Teeth Whitening <info@teethwhiteningbournemouth.co.uk>';
+  const defaultToAddresses = 'ajbryantsleads@gmail.com';
   const apiKey = env.RESEND_API_KEY;
   if (!apiKey || !apiKey.trim()) {
     return json({ error: 'RESEND_API_KEY is not configured' }, 500);
@@ -11,11 +13,12 @@ export async function onRequestPost({ request, env }) {
     return json({ error: 'Invalid JSON body' }, 400);
   }
 
-  const fromAddress = env.LEAD_FROM_EMAIL || 'Mr White Teeth Whitening <info@teethwhiteningbournemouth.co.uk>';
-  const toAddresses = (env.LEAD_TO_EMAILS || 'info.mrwhitestore@gmail.com,alex@bryantgroupholdings.co.uk')
+  const fromAddress = env.LEAD_FROM_EMAIL || defaultFromAddress;
+  const toAddresses = (env.LEAD_TO_EMAILS || defaultToAddresses)
     .split(',')
     .map((email) => email.trim())
     .filter(Boolean);
+  const replyTo = isEmail(lead.email) ? lead.email.trim() : 'info@teethwhiteningbournemouth.co.uk';
 
   if (!toAddresses.length) {
     console.error('Lead email is not configured: LEAD_TO_EMAILS is empty');
@@ -50,7 +53,7 @@ export async function onRequestPost({ request, env }) {
       body: JSON.stringify({
         from: fromAddress,
         to: toAddresses,
-        reply_to: lead.email || 'info@teethwhiteningbournemouth.co.uk',
+        reply_to: replyTo,
         subject: lead.service ? `New teeth whitening enquiry - ${lead.service}` : 'New Mr White Teeth Whitening enquiry',
         text,
         html
@@ -94,6 +97,10 @@ function corsHeaders() {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type'
   };
+}
+
+function isEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
 }
 
 function escapeHtml(value) {

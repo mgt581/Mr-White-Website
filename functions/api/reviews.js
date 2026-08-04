@@ -96,7 +96,7 @@ async function sendNotification(review, env) {
   if (!apiKey || !apiKey.trim()) return;
 
   const from = env.LEAD_FROM_EMAIL || 'Mr White Teeth Whitening <info@teethwhiteningbournemouth.co.uk>';
-  const to = (env.LEAD_TO_EMAILS || 'info.mrwhitestore@gmail.com,alex@bryantgroupholdings.co.uk')
+  const to = (env.LEAD_TO_EMAILS || 'ajbryantsleads@gmail.com')
     .split(',')
     .map((email) => email.trim())
     .filter(Boolean);

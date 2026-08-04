@@ -43,4 +43,4 @@ LEAD_FROM_EMAIL=Mr White Teeth Whitening <info@teethwhiteningbournemouth.co.uk>
 LEAD_TO_EMAILS=ajbryantsleads@gmail.com
 ```
 
-The `LEAD_TO_EMAILS` variable is optional if the default recipients are correct.
+The `LEAD_TO_EMAILS` variable is optional because the code defaults to `ajbryantsleads@gmail.com`.
