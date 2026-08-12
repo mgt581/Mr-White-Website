@@ -35,12 +35,15 @@ This is handled by:
 functions/api/send-lead.js
 ```
 
-Add these Cloudflare Pages environment variables:
+Cloudflare Pages production is configured with:
 
 ```text
-RESEND_API_KEY=<your Resend API key>
+BUSINESS_NAME=Mr White Teeth Whitening
 LEAD_FROM_EMAIL=Mr White Teeth Whitening <info@teethwhiteningbournemouth.co.uk>
 LEAD_TO_EMAILS=ajbryantsleads@gmail.com
+RESEND_API_KEY=<encrypted Cloudflare secret>
+LEADS_EXPORT_TOKEN=<encrypted Cloudflare secret>
+LEADS_DB=mr-white-leads
 ```
 
-The `LEAD_TO_EMAILS` variable is optional because the code defaults to `ajbryantsleads@gmail.com`.
+The D1 database is bound as `LEADS_DB` and stores lead submissions plus delivery status. Do not commit `RESEND_API_KEY` or `LEADS_EXPORT_TOKEN` to GitHub.
