@@ -26,6 +26,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   const name = [lead.first_name, lead.last_name].filter(Boolean).join(' ') || lead.name;
+  const storedLeadId = await storeLead(env, request, lead, name, 'pending');
   const fields = [
     ['Page', lead.page_url],
     ['Form', lead.form_name],
@@ -62,15 +63,18 @@ export async function onRequestPost({ request, env }) {
   } catch (error) {
     // Do not allow an outbound network error to crash the Pages Function.
     console.error('Resend request failed', error);
+    await updateLeadDelivery(env, storedLeadId, 'failed', 'Resend request failed');
     return json({ error: 'Email service is temporarily unavailable' }, 503);
   }
 
   if (!response.ok) {
     const details = await response.text();
     console.error('Resend email failed', response.status, details);
+    await updateLeadDelivery(env, storedLeadId, 'failed', `Resend returned ${response.status}`);
     return json({ error: 'Email service rejected the message' }, 502);
   }
 
+  await updateLeadDelivery(env, storedLeadId, 'delivered', '');
   return json({ ok: true });
 }
 
@@ -97,6 +101,96 @@ function corsHeaders() {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type'
   };
+}
+
+async function storeLead(env, request, lead, name, deliveryStatus) {
+  if (!env.LEADS_DB) return null;
+
+  try {
+    await ensureLeadSchema(env.LEADS_DB);
+    const result = await env.LEADS_DB.prepare(`INSERT INTO leads (
+      submitted_at, name, phone, email, service, message, page, form_name,
+      delivery_status, user_agent, ip_hash
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(
+      new Date().toISOString(),
+      clean(name || 'Website visitor', 240),
+      clean(lead.phone, 80),
+      clean(lead.email, 240),
+      clean(lead.service || 'Website enquiry', 160),
+      clean(lead.message, 4000),
+      clean(lead.page_url || lead.page, 1000),
+      clean(lead.form_name, 200),
+      deliveryStatus,
+      clean(request.headers.get('user-agent'), 1000),
+      await hashIp(request.headers.get('cf-connecting-ip') || '')
+    ).run();
+    return result && result.meta ? Number(result.meta.last_row_id || 0) : null;
+  } catch (error) {
+    console.error('Lead storage failed', error);
+    return null;
+  }
+}
+
+async function updateLeadDelivery(env, leadId, deliveryStatus, deliveryErrors) {
+  if (!env.LEADS_DB || !leadId) return;
+
+  try {
+    await env.LEADS_DB.prepare('UPDATE leads SET delivery_status = ?, delivery_errors = ? WHERE id = ?')
+      .bind(deliveryStatus, deliveryErrors, leadId)
+      .run();
+  } catch (error) {
+    console.error('Lead delivery status update failed', error);
+  }
+}
+
+async function ensureLeadSchema(db) {
+  await db.prepare(`CREATE TABLE IF NOT EXISTS leads (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    submitted_at TEXT NOT NULL,
+    name TEXT NOT NULL,
+    phone TEXT,
+    email TEXT,
+    postcode TEXT,
+    service TEXT,
+    timeframe TEXT,
+    message TEXT,
+    page TEXT,
+    source TEXT,
+    landing_page TEXT,
+    referrer TEXT,
+    utm_source TEXT,
+    utm_medium TEXT,
+    utm_campaign TEXT,
+    utm_term TEXT,
+    utm_content TEXT,
+    gclid TEXT,
+    fbclid TEXT,
+    msclkid TEXT,
+    session_id TEXT,
+    client_id TEXT,
+    form_name TEXT,
+    marketing_consent INTEGER NOT NULL DEFAULT 0,
+    delivery_status TEXT NOT NULL DEFAULT 'pending',
+    delivery_errors TEXT,
+    lead_status TEXT NOT NULL DEFAULT 'NEW',
+    quote_value_pence INTEGER NOT NULL DEFAULT 0,
+    won_revenue_pence INTEGER NOT NULL DEFAULT 0,
+    status_updated_at TEXT,
+    user_agent TEXT,
+    ip_hash TEXT
+  )`).run();
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_leads_submitted_at ON leads (submitted_at DESC)').run();
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_leads_status ON leads (lead_status)').run();
+}
+
+function clean(value, limit = 1000) {
+  return String(value == null ? '' : value).trim().slice(0, limit);
+}
+
+async function hashIp(ipAddress) {
+  if (!ipAddress || !crypto.subtle) return '';
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ipAddress));
+  return Array.from(new Uint8Array(digest)).map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }
 
 function isEmail(value) {
