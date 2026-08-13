@@ -75,6 +75,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   await updateLeadDelivery(env, storedLeadId, 'delivered', '');
+  await storeLeadEvent(env, request, lead, 'generate_lead');
   return json({ ok: true });
 }
 
@@ -109,9 +110,11 @@ async function storeLead(env, request, lead, name, deliveryStatus) {
   try {
     await ensureLeadSchema(env.LEADS_DB);
     const result = await env.LEADS_DB.prepare(`INSERT INTO leads (
-      submitted_at, name, phone, email, service, message, page, form_name,
+      submitted_at, name, phone, email, service, message, page, source,
+      landing_page, referrer, utm_source, utm_medium, utm_campaign, utm_term,
+      utm_content, gclid, fbclid, msclkid, session_id, client_id, form_name,
       delivery_status, user_agent, ip_hash
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(
       new Date().toISOString(),
       clean(name || 'Website visitor', 240),
       clean(lead.phone, 80),
@@ -119,6 +122,19 @@ async function storeLead(env, request, lead, name, deliveryStatus) {
       clean(lead.service || 'Website enquiry', 160),
       clean(lead.message, 4000),
       clean(lead.page_url || lead.page, 1000),
+      inferredSource(lead),
+      clean(lead.landing_page, 1000),
+      clean(lead.referrer, 1000),
+      clean(lead.utm_source, 240),
+      clean(lead.utm_medium, 240),
+      clean(lead.utm_campaign, 240),
+      clean(lead.utm_term, 240),
+      clean(lead.utm_content, 240),
+      clean(lead.gclid, 300),
+      clean(lead.fbclid, 300),
+      clean(lead.msclkid, 300),
+      clean(lead.session_id, 120),
+      clean(lead.client_id, 120),
       clean(lead.form_name, 200),
       deliveryStatus,
       clean(request.headers.get('user-agent'), 1000),
@@ -128,6 +144,46 @@ async function storeLead(env, request, lead, name, deliveryStatus) {
   } catch (error) {
     console.error('Lead storage failed', error);
     return null;
+  }
+}
+
+async function storeLeadEvent(env, request, lead, eventName) {
+  if (!env.LEADS_DB) return;
+
+  try {
+    await ensureLeadEventSchema(env.LEADS_DB);
+    await env.LEADS_DB.prepare(`INSERT INTO lead_events (
+      occurred_at, event_name, page, landing_page, referrer, source, medium,
+      campaign, term, content, gclid, fbclid, msclkid, service, link_url,
+      link_text, phone_number, whatsapp_number, email_address, session_id,
+      client_id, user_agent, ip_hash
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(
+      new Date().toISOString(),
+      eventName,
+      clean(lead.page_url || lead.page, 1000),
+      clean(lead.landing_page, 1000),
+      clean(lead.referrer, 1000),
+      inferredSource(lead),
+      clean(lead.utm_medium, 160),
+      clean(lead.utm_campaign, 240),
+      clean(lead.utm_term, 240),
+      clean(lead.utm_content, 240),
+      clean(lead.gclid, 300),
+      clean(lead.fbclid, 300),
+      clean(lead.msclkid, 300),
+      clean(lead.service, 160),
+      '',
+      clean(lead.form_name, 200),
+      clean(lead.phone, 100),
+      '',
+      clean(lead.email, 240),
+      clean(lead.session_id, 120),
+      clean(lead.client_id, 120),
+      clean(request.headers.get('user-agent'), 1000),
+      await hashIp(request.headers.get('cf-connecting-ip') || '')
+    ).run();
+  } catch (error) {
+    console.error('Lead event storage failed', error);
   }
 }
 
@@ -180,7 +236,68 @@ async function ensureLeadSchema(db) {
     ip_hash TEXT
   )`).run();
   await db.prepare('CREATE INDEX IF NOT EXISTS idx_leads_submitted_at ON leads (submitted_at DESC)').run();
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_leads_source ON leads (source)').run();
   await db.prepare('CREATE INDEX IF NOT EXISTS idx_leads_status ON leads (lead_status)').run();
+}
+
+async function ensureLeadEventSchema(db) {
+  await db.prepare(`CREATE TABLE IF NOT EXISTS lead_events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    occurred_at TEXT NOT NULL,
+    event_name TEXT NOT NULL,
+    page TEXT,
+    landing_page TEXT,
+    referrer TEXT,
+    source TEXT,
+    medium TEXT,
+    campaign TEXT,
+    term TEXT,
+    content TEXT,
+    gclid TEXT,
+    fbclid TEXT,
+    msclkid TEXT,
+    service TEXT,
+    link_url TEXT,
+    link_text TEXT,
+    phone_number TEXT,
+    whatsapp_number TEXT,
+    email_address TEXT,
+    session_id TEXT,
+    client_id TEXT,
+    user_agent TEXT,
+    ip_hash TEXT
+  )`).run();
+  await ensureColumns(db, 'lead_events', [
+    ['email_address', 'TEXT']
+  ]);
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_lead_events_occurred_at ON lead_events (occurred_at DESC)').run();
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_lead_events_event_name ON lead_events (event_name)').run();
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_lead_events_session_id ON lead_events (session_id)').run();
+}
+
+async function ensureColumns(db, tableName, additions) {
+  const result = await db.prepare(`PRAGMA table_info(${tableName})`).all();
+  const columns = new Set((result.results || []).map((column) => column.name));
+  for (const [name, definition] of additions) {
+    if (!columns.has(name)) {
+      await db.prepare(`ALTER TABLE ${tableName} ADD COLUMN ${name} ${definition}`).run();
+    }
+  }
+}
+
+function inferredSource(lead) {
+  const utmSource = clean(lead.utm_source, 240).toLowerCase();
+  const suppliedSource = clean(lead.source, 160).toLowerCase();
+  const referrer = clean(lead.referrer, 1000).toLowerCase();
+
+  if (utmSource) return utmSource;
+  if (lead.fbclid || referrer.indexOf('facebook.com') !== -1 || referrer.indexOf('fb.com') !== -1) return 'facebook';
+  if (referrer.indexOf('instagram.com') !== -1) return 'instagram';
+  if (lead.gclid || referrer.indexOf('google.') !== -1 || referrer.indexOf('g.co') !== -1) return 'google';
+  if (lead.msclkid || referrer.indexOf('bing.com') !== -1) return 'bing';
+  if (referrer.indexOf('whatsapp.com') !== -1 || referrer.indexOf('wa.me') !== -1) return 'whatsapp';
+  if (suppliedSource && suppliedSource !== 'website') return suppliedSource;
+  return 'direct / unknown';
 }
 
 function clean(value, limit = 1000) {
