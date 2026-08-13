@@ -2,6 +2,12 @@ name = "mr-white-website"
 pages_build_output_dir = "."
 compatibility_date = "2026-04-13"
 
+[vars]
+BUSINESS_NAME = "Mr White Teeth Whitening"
+LEAD_FROM_EMAIL = "Mr White Teeth Whitening <info@teethwhiteningbournemouth.co.uk>"
+LEAD_TO_EMAILS = "ajbryantsleads@gmail.com"
+CLOUDFLARE_ACCESS_ENABLED = "true"
+
 [[kv_namespaces]]
 binding = "REVIEWS_KV"
 id = "9b6d802c5fc94b809692c18a7a254d25"
