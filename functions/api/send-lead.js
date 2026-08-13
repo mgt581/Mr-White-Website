@@ -1,4 +1,16 @@
+function isPrimarySiteRequest(request, env) {
+  const primaryHost = String(env.PRIMARY_SITE_HOST || '').trim().toLowerCase();
+  if (!primaryHost) return true;
+  const requestHost = new URL(request.url).hostname.toLowerCase();
+  const origin = String(request.headers.get('origin') || '').trim();
+  const originHost = origin ? new URL(origin).hostname.toLowerCase() : requestHost;
+  return requestHost === primaryHost && originHost === primaryHost;
+}
+
 export async function onRequestPost({ request, env }) {
+  if (!isPrimarySiteRequest(request, env)) {
+    return json({ error: 'Lead submissions must come from the primary website.' }, 403);
+  }
   const defaultFromAddress = 'Mr White Teeth Whitening <info@teethwhiteningbournemouth.co.uk>';
   const defaultToAddresses = 'ajbryantsleads@gmail.com';
   const apiKey = env.RESEND_API_KEY;

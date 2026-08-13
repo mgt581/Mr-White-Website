@@ -7,6 +7,7 @@ BUSINESS_NAME = "Mr White Teeth Whitening"
 LEAD_FROM_EMAIL = "Mr White Teeth Whitening <info@teethwhiteningbournemouth.co.uk>"
 LEAD_TO_EMAILS = "ajbryantsleads@gmail.com"
 CLOUDFLARE_ACCESS_ENABLED = "true"
+PRIMARY_SITE_HOST = "teethwhiteningbournemouth.co.uk"
 
 [[kv_namespaces]]
 binding = "REVIEWS_KV"

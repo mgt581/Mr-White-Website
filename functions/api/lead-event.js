@@ -12,6 +12,15 @@ function clean(value) {
   return String(value || "").trim().slice(0, 1000);
 }
 
+function isPrimarySiteRequest(request, env) {
+  var primaryHost = String(env.PRIMARY_SITE_HOST || '').trim().toLowerCase();
+  if (!primaryHost) return true;
+  var requestHost = new URL(request.url).hostname.toLowerCase();
+  var origin = String(request.headers.get('origin') || '').trim();
+  var originHost = origin ? new URL(origin).hostname.toLowerCase() : requestHost;
+  return requestHost === primaryHost && originHost === primaryHost;
+}
+
 async function hashIp(ip) {
   if (!ip || !crypto.subtle) return "";
   var data = new TextEncoder().encode(ip);
@@ -100,6 +109,9 @@ function inferredEventSource(payload) {
 export async function onRequestPost(context) {
   try {
     var env = context.env || {};
+    if (!isPrimarySiteRequest(context.request, env)) {
+      return jsonResponse({ ok: false, error: "Tracking events must come from the primary website." }, 403);
+    }
     if (!env.LEADS_DB) {
       return jsonResponse({ ok: false, error: "Lead event database is not configured." }, 503);
     }
